@@ -1,0 +1,30 @@
+{
+  "name": "github-user-search-app",
+  "version": "1.0.0",
+  "description": "A search application for github profiles",
+  "main": "index.js",
+  "scripts": {
+    "doc": "jsdoc -c jsdoc.json",
+    "test": "vitest --run --reporter verbose",
+    "test-dom": "vitest --run --environment happy-dom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielArzani/github-user-search-app.git"
+  },
+  "keywords": [
+    "github",
+    "search"
+  ],
+  "author": "Daniel Arzanipour",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DanielArzani/github-user-search-app/issues"
+  },
+  "homepage": "https://github.com/DanielArzani/github-user-search-app#readme",
+  "devDependencies": {
+    "happy-dom": "^7.6.6",
+    "jsdoc": "^4.0.0",
+    "vitest": "^0.25.0"
+  }
+}
