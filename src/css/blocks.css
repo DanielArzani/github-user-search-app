@@ -1,0 +1,35 @@
+/*--------------------
+	    header 
+---------------------*/
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title {
+  font-size: 1.625rem;
+}
+
+.header__toggle {
+}
+
+/*--------------------
+	    toggle 
+---------------------*/
+.header__toggle.toggle {
+  border: none;
+}
+
+.toggle__switch {
+  display: flex;
+}
+
+.toggle__label {
+  display: flex;
+  gap: 1rem;
+}
+
+.toggle__switch label input:checked {
+  /* opacity: 0.00001; */
+}

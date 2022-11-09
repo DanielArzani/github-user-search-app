@@ -27,5 +27,43 @@
 
     <script src="./src/js/script.js" type="module" defer></script>
   </head>
-  <body></body>
+  <body>
+    <header class="[ header ] [ center ]">
+      <h1 class="[ header__title ]">devfinder</h1>
+
+      <fieldset class="[ header__toggle toggle ]">
+        <legend class="[ toggle__legend ] [ sr-only ]">
+          Toggle Color Theme
+        </legend>
+
+        <div class="[ toggle__switch ]">
+          <label for="dark" class="[ toggle__label ]">
+            <input type="radio" name="toggle" id="dark" value="dark" />
+            Dark
+            <img
+              src="./src/assets/images/icon-moon.svg"
+              aria-hidden="true"
+              alt=""
+            />
+          </label>
+
+          <label for="light" class="[ toggle__label ] [ sr-only ]">
+            <input
+              type="radio"
+              name="toggle"
+              id="light"
+              value="light"
+              checked
+            />
+            Light
+            <img
+              src="./src/assets/images/icon-sun.svg"
+              aria-hidden="true"
+              alt=""
+            />
+          </label>
+        </div>
+      </fieldset>
+    </header>
+  </body>
 </html>
