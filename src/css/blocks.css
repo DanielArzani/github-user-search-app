@@ -30,6 +30,6 @@
   gap: 1rem;
 }
 
-.toggle__switch label input:checked {
-  /* opacity: 0.00001; */
+.toggle__switch label input {
+  opacity: 0.00001;
 }
