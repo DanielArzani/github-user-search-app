@@ -4,14 +4,25 @@
 .header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .header__title {
   font-size: 1.625rem;
+  font-weight: 700;
 }
 
 .header__toggle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 17.125em) {
+  .header__title,
+  .header__toggle {
+    margin-inline: auto;
+  }
 }
 
 /*--------------------
@@ -25,11 +36,15 @@
   display: flex;
 }
 
+.toggle__switch:focus-within {
+  outline: dashed red;
+}
+
 .toggle__label {
   display: flex;
   gap: 1rem;
 }
 
-.toggle__switch label input {
+.toggle__label input {
   opacity: 0.00001;
 }

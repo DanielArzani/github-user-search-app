@@ -3,7 +3,7 @@
 const inputs = document.querySelectorAll('.toggle__switch input');
 const labels = document.querySelectorAll('.toggle__switch label');
 
-if (inputs.length !== 0) {
+if (inputs.length > 0) {
   inputs.forEach((input) => {
     const label = input.parentElement;
 

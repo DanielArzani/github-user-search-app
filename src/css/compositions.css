@@ -3,8 +3,11 @@
 ----------------------------*/
 .center {
   --measure: 45.625rem;
+  --gutters: 1.5rem;
 
   box-sizing: content-box;
   margin-inline: auto;
   max-inline-size: var(--measure);
+  padding-inline-start: var(--gutters);
+  padding-inline-end: var(--gutters);
 }
