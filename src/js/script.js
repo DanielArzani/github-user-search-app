@@ -1,29 +1,22 @@
 //@ts-check
 
+import { validationError } from './utils/errors.js';
+
 const inputs = document.querySelectorAll('.toggle__switch input');
 const labels = document.querySelectorAll('.toggle__switch label');
 
-if (inputs.length > 0) {
-  inputs.forEach((input) => {
-    const label = input.parentElement;
+// validate querySelectorAll's return value
+if (inputs.length === 0)
+  throw new validationError('NodeListOf<HTMLInputElement> is empty');
+if (labels.length === 0)
+  throw new validationError('NodeListOf<HTMLLabelElement> is empty');
 
-    input.addEventListener('click', () => {
-      if (label !== null) {
-        if (label.dataset.hidden === 'true') {
-          label.dataset.hidden = 'false';
-        } else {
-          labels.forEach((label) => {
-            if (label instanceof HTMLLabelElement) {
-              label.dataset.hidden = 'false';
-            }
-          });
-
-          label.dataset.hidden = 'true';
-          label.firstElementChild?.toggleAttribute('checked');
-        }
-      }
-    });
+// loop through both inputs and switch them on click
+inputs.forEach((input) => {
+  input.addEventListener('click', () => {
+    const otherLabel =
+      input.parentElement?.parentElement?.querySelector('.sr-only');
+    otherLabel?.classList.remove('sr-only');
+    input.parentElement?.classList.add('sr-only');
   });
-} else {
-  console.error('Empty NodeList');
-}
+});

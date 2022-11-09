@@ -24,8 +24,9 @@
   },
   "homepage": "https://github.com/DanielArzani/github-user-search-app#readme",
   "devDependencies": {
-    "happy-dom": "^7.6.6",
+    "happy-dom": "^7.6.7",
     "jsdoc": "^4.0.0",
-    "vitest": "^0.25.0"
+    "vite": "^3.2.3",
+    "vitest": "^0.25.1"
   }
 }
