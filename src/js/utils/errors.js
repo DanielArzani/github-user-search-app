@@ -2,7 +2,7 @@
 
 /**
  * @class
- * @classdesc Can be used to return a custom error message, should be used with the throw keyword
+ * @classdesc Can be used to return a custom error message, should be used with the throw keyword. Contains a default error message if one isn't passed in
  * @example throw new validationError
  */
 export class validationError {

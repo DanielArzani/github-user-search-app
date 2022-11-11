@@ -1,6 +1,26 @@
 /* @link https://utopia.fyi/space/calculator?c=375,13,1.2,1440,15,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
 :root {
+  /* COLOURS */
+  --clr-ocean-blue: 212, 100%, 50%;
+  --clr-heavy-grey: 217, 20%, 51%;
+  --clr-navy-blue: 217, 35%, 45%;
+  --clr-dark-metal: 217, 21%, 21%;
+  --clr-cloudy-grey: 227, 100%, 98%;
+  --clr-white: 0, 0%, 100%;
+  --clr-dark-night: 220, 40%, 13%;
+  --clr-dark-blue: 222, 41%, 20%;
+
+  /* DEFAULT COLOUR THEME */
+  --clr-bg-main: hsl(var(--clr-cloudy-grey));
+  --clr-bg-secondary: hsl(var(--clr-cloudy-white));
+  --clr-text-primary: hsl(var(--clr-dark-night));
+  --clr-text-secondary: hsl(var(--clr-navy-blue));
+  --clr-text-toggle: hsl(var(--clr-heavy-grey));
+  --clr-text-disabled: hsl(var(--clr-heavy-grey));
+  --clr-text-link: hsl(var(--clr-ocean-blue));
+  --clr-search-buttons: hsl(var(--clr-ocean-blue));
+
   /* FLUID TYPE SCALE */
   --step--2: clamp(0.69rem, calc(0.64rem + 0.19vw), 0.81rem);
   --step--1: clamp(0.69rem, calc(0.6rem + 0.38vw), 0.94rem);
@@ -36,7 +56,31 @@
 }
 
 body {
+  background-color: var(--clr-bg-main);
   font-family: 'Space Mono', monospace;
   font-size: var(--step-0);
   font-weight: 400;
+}
+
+/* light theme */
+:is(.light, :root:has(#light:checked)) {
+  --clr-bg-main: hsl(var(--clr-cloudy-grey));
+  --clr-bg-secondary: hsl(var(--clr-cloudy-white));
+  --clr-text-primary: hsl(var(--clr-dark-night));
+  --clr-text-secondary: hsl(var(--clr-navy-blue));
+  --clr-text-toggle: hsl(var(--clr-heavy-grey));
+  --clr-text-disabled: hsl(var(--clr-heavy-grey));
+  --clr-text-link: hsl(var(--clr-ocean-blue));
+  --clr-search-buttons: hsl(var(--clr-ocean-blue));
+}
+
+/* dark theme */
+:is(.dark, :root:has(#dark:checked)) {
+  --clr-bg-main: hsl(var(--clr-dark-night));
+  --clr-bg-secondary: hsl(var(--clr-dark-blue));
+  --clr-text-primary: hsl(var(--clr-white));
+  --clr-text-secondary: hsl(var(--clr-cloudy-white));
+  --clr-text-disabled: hsl(var(--clr-heavy-grey));
+  --clr-text-link: hsl(var(--clr-ocean-blue));
+  --clr-search-buttons: hsl(var(--clr-ocean-blue));
 }

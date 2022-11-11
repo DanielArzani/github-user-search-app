@@ -10,3 +10,4 @@ style-guide.md
 /design
 /dist
 .markdownlint.json
+/coverage
