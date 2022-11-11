@@ -15,3 +15,21 @@ export function changeClassName(element, newClassName) {
       "Either an argument that wasn't an HTMLElement was passed in or a string wasn't passed in"
     );
 }
+
+/**
+ * Stores a string to localStorage api
+ * @param {string} theme - A string that should match a colour theme
+ * @returns {void} void
+ */
+export function storeTheme(theme) {
+  localStorage.setItem('theme', theme);
+}
+
+/**
+ * Retrieves a string from the localStorage api
+ * @param {string} theme - Theme from localStorage to retrieve
+ * @returns {String  | null} - Will either return a theme or null if it doesn't exist
+ */
+export function retrieveTheme(theme) {
+  return localStorage.getItem(theme);
+}
