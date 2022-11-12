@@ -9,11 +9,13 @@
 }
 
 .header__title {
+  color: var(--clr-text-primary);
   font-size: 1.625rem;
   font-weight: 700;
 }
 
 .header__toggle {
+  color: var(--clr-text-toggle);
   font-size: 0.8125rem;
   font-weight: 700;
 }
@@ -37,7 +39,7 @@
 }
 
 .toggle__switch:focus-within {
-  outline: dashed red;
+  outline: dashed var(--clr-text-toggle);
 }
 
 .toggle__label {
