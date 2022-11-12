@@ -26,10 +26,16 @@ export function storeTheme(theme) {
 }
 
 /**
- * Retrieves a string from the localStorage api
- * @param {string} theme - Theme from localStorage to retrieve
- * @returns {String  | null} - Will either return a theme or null if it doesn't exist
+ * A function that will take a HTMLLabelElement and change or create a data attribute on it depending on whether its for attribute matches the matcher param
+ * @param {HTMLLabelElement} labelEl - An HTMLLabelElement
+ * @param {string} matcher - A string to match against the label elements for attribute
+ * @param {string} dataAttr - The desired data attribute to create or change
+ * @returns {void}
  */
-export function retrieveTheme(theme) {
-  return localStorage.getItem(theme);
+export function setLabel(labelEl, matcher, dataAttr) {
+  if (labelEl.getAttribute('for') === matcher) {
+    labelEl.dataset[dataAttr] = 'true';
+  } else {
+    labelEl.dataset[dataAttr] = 'false';
+  }
 }
