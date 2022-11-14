@@ -11,6 +11,8 @@
   --clr-dark-night: 220, 40%, 13%;
   --clr-dark-blue: 222, 41%, 20%;
 
+  --clr-crimson: 0, 91%, 62%;
+
   /* DEFAULT COLOUR THEME */
   --clr-bg-main: hsl(var(--clr-cloudy-grey));
   --clr-bg-secondary: hsl(var(--clr-cloudy-white));
@@ -65,7 +67,8 @@ body {
 /* light theme */
 :is(.light, :root:has(#light:checked)) {
   --clr-bg-main: hsl(var(--clr-cloudy-grey));
-  --clr-bg-secondary: hsl(var(--clr-cloudy-white));
+  --clr-bg-secondary: hsl(var(--clr-white));
+  --clr-bg-tertiary: hsl(var(--clr-cloudy-grey));
   --clr-text-primary: hsl(var(--clr-dark-night));
   --clr-text-secondary: hsl(var(--clr-navy-blue));
   --clr-text-toggle: hsl(var(--clr-heavy-grey));
@@ -78,8 +81,9 @@ body {
 :is(.dark, :root:has(#dark:checked)) {
   --clr-bg-main: hsl(var(--clr-dark-night));
   --clr-bg-secondary: hsl(var(--clr-dark-blue));
+  --clr-bg-tertiary: hsl(var(--clr-dark-night));
   --clr-text-primary: hsl(var(--clr-white));
-  --clr-text-secondary: hsl(var(--clr-cloudy-white));
+  --clr-text-secondary: hsl(var(--clr-cloudy-grey));
   --clr-text-toggle: hsl(var(--clr-white));
   --clr-text-disabled: hsl(var(--clr-heavy-grey));
   --clr-text-link: hsl(var(--clr-ocean-blue));

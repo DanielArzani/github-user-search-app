@@ -25,7 +25,7 @@
     <!-- un-comment for production -->
     <!-- <link rel="stylesheet" href="./src/css/styles.css" /> -->
 
-    <script src="./src/js/script.js" type="module" defer></script>
+    <script src="./src/js/script.js" type="module"></script>
   </head>
   <body>
     <header class="[ header ] [ center ]">
@@ -65,5 +65,39 @@
         </div>
       </fieldset>
     </header>
+
+    <main class="[ main ]">
+      <!-- TODO: make sure to test if aria-live works as intended -->
+      <form class="[ search-form ] [ center ]" action="/" method="get">
+        <p>Search GitHub username…</p>
+        <div class="[ search-form__container ]" role="search">
+          <div class="[ search-form__form-controls ]">
+            <label class="[ search-form__label ]" for="search">
+              <img
+                src="./src/assets/images/icon-search.svg"
+                alt="Search for github user by username"
+              />
+            </label>
+            <input
+              class="[ search-form__input ]"
+              type="search"
+              id="search"
+              name="search"
+              maxlength="39"
+              pattern="[a-z0-9]{0,38}"
+              required
+            />
+
+            <span
+              class="[ search-form__error ]"
+              role="alert"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <button class="[ search-form__button ]" type="submit">Search</button>
+        </div>
+      </form>
+    </main>
   </body>
 </html>
