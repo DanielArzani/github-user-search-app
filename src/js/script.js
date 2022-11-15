@@ -36,18 +36,31 @@ inputs.forEach((input) => {
 // GET GITHUB USER INFO
 // avatar_url ,created_at, name, location, public_repos, followers, following, html_url, twitter_username, blog, bio, company
 
-// searchForm?.addEventListener('submit', (e) => {
-//   e.preventDefault();
+searchForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-//   if (searchForm instanceof HTMLFormElement) {
-//     const userSearchParam = extractFormData(searchForm, 'search');
-//     if (userSearchParam == null) return null;
+  if (searchForm instanceof HTMLFormElement) {
+    const userSearchParam = extractFormData(searchForm, 'search');
+    if (userSearchParam == null) return null;
 
-//     getUser(userSearchParam).then((data) => {
-//       if (data != null) {
-//         const { data: userData } = data;
-//         // render data on screen
-//       }
-//     });
-//   }
-// });
+    getUser(userSearchParam).then((data) => {
+      const errorMsg = document.querySelector('.search-form__error');
+      if (data != null) {
+        // hide error message
+        if (errorMsg instanceof HTMLSpanElement) {
+          errorMsg.dataset.content = '';
+        }
+
+        const { data: userData } = data;
+        console.log(userData);
+
+        // render data on screen
+      } else {
+        // show error message
+        if (errorMsg instanceof HTMLSpanElement) {
+          errorMsg.dataset.content = 'No Results';
+        }
+      }
+    });
+  }
+});

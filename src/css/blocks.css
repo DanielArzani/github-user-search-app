@@ -102,8 +102,8 @@
   padding-block: 0.875rem;
 }
 
-.search-form__input:invalid ~ .search-form__error::after {
-  content: '';
+.search-form__error::after {
+  content: attr(data-content);
 }
 
 .search-form__error {
