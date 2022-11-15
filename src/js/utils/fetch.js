@@ -1,7 +1,8 @@
 //@ts-check
 
 // @ts-ignore
-import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+// import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+// TODO: Remove personal access token and add this method to notes
 
 /**
  * Will make a fetch request to the github api
@@ -9,15 +10,18 @@ import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
  * @returns {Promise} The fulfilled promise
  */
 export async function getUser(name) {
-  const octokit = new Octokit({
-    auth: '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',
-    baseUrl: 'https://api.github.com/users',
-  });
-
   try {
-    const response = await octokit.request(`GET /${name}`, {});
+    // const response = await octokit.request(`GET /${name}`, {});
+    // return response;
 
-    return response;
+    const response = await fetch(`https://api.github.com/users/${name}`);
+    const data = await response.json();
+
+    if (data.message === 'Not Found') {
+      return undefined;
+    }
+
+    return data;
   } catch (error) {
     console.log(error);
   }

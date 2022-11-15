@@ -44,19 +44,25 @@ searchForm?.addEventListener('submit', (e) => {
     if (userSearchParam == null) return null;
 
     getUser(userSearchParam).then((data) => {
+      console.log(data);
       const errorMsg = document.querySelector('.search-form__error');
+
       if (data != null) {
         // hide error message
         if (errorMsg instanceof HTMLSpanElement) {
           errorMsg.dataset.content = '';
         }
 
-        const { data: userData } = data;
-        console.log(userData);
+        // UN-COMMENT FOR DEVELOPMENT
+        // const { data: userData } = data;
+
+        // UN-COMMENT OUT FOR PRODUCTION
+        const userData = data;
 
         // render data on screen
-      } else {
-        // show error message
+      }
+
+      if (data == undefined) {
         if (errorMsg instanceof HTMLSpanElement) {
           errorMsg.dataset.content = 'No Results';
         }
