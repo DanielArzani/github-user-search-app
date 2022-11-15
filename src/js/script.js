@@ -1,22 +1,18 @@
 //@ts-check
 'use strict';
 
+// dependencies
+
 import { validationError } from './utils/errors.js';
 import { changeClassName, setLabel, handleClick } from './utils/dom.js';
+import { getUser } from './utils/fetch.js';
+import { extractFormData } from './utils/form.js';
 
 // global variables
+const searchForm = document.querySelector('.search-form');
 const inputs = document.querySelectorAll('.toggle__switch input');
 const labels = document.querySelectorAll('.toggle__switch label');
 const body = document.body;
-
-// validate the querySelectors return values
-if (inputs.length === 0)
-  throw new validationError('NodeListOf<HTMLInputElement> is empty');
-if (labels.length === 0)
-  throw new validationError('NodeListOf<HTMLLabelElement> is empty');
-if (body instanceof HTMLBodyElement === false) {
-  throw new validationError('body isn"t an instance of the HTMLBodyElement');
-}
 
 // SET THEME ON PAGE LOAD
 window.addEventListener('DOMContentLoaded', () => {
@@ -36,3 +32,22 @@ window.addEventListener('DOMContentLoaded', () => {
 inputs.forEach((input) => {
   input.addEventListener('click', handleClick.bind(input, body, labels));
 });
+
+// GET GITHUB USER INFO
+// avatar_url ,created_at, name, location, public_repos, followers, following, html_url, twitter_username, blog, bio, company
+
+// searchForm?.addEventListener('submit', (e) => {
+//   e.preventDefault();
+
+//   if (searchForm instanceof HTMLFormElement) {
+//     const userSearchParam = extractFormData(searchForm, 'search');
+//     if (userSearchParam == null) return null;
+
+//     getUser(userSearchParam).then((data) => {
+//       if (data != null) {
+//         const { data: userData } = data;
+//         // render data on screen
+//       }
+//     });
+//   }
+// });
