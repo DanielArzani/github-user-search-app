@@ -112,7 +112,9 @@
 
           <div class="[ user__info-wrapper ]">
             <h2 class="[ user__name ]">The Octocat</h2>
-            <a href="#" class="[ user__link ]">@octocat</a>
+            <a href="#" target="_blank" class="[ user__link ]"
+              >@<span data-user-link>octocat</span></a
+            >
             <p class="[ user__date-joined ]">Joined <time>25 Jan 2011</time></p>
           </div>
 
@@ -122,7 +124,24 @@
           </p>
         </section>
 
-        <section class="[ user__stats ]"></section>
+        <section class="[ user__stats ] [ c-grid ]">
+          <div class="[ background ] [ switcher ]">
+            <div class="[ user__stat ]">
+              <h3>Repos</h3>
+              <p>8</p>
+            </div>
+
+            <div class="[ user__stat ]">
+              <h3>Followers</h3>
+              <p>3938</p>
+            </div>
+
+            <div class="[ user__stat ]">
+              <h3>Following</h3>
+              <p>9</p>
+            </div>
+          </div>
+        </section>
 
         <section class="[ user__social ]"></section>
       </div>

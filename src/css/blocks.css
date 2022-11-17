@@ -177,7 +177,9 @@
   padding: 2rem 1.5rem 3rem 1.5rem;
 }
 
-/* profile */
+/*--------------------
+	    user__profile 
+---------------------*/
 /* .user__profile {
 } */
 
@@ -240,7 +242,11 @@
   }
 }
 
-@media only screen and (min-width: 62.5rem) {
+@media only screen and (min-width: 62.5em) {
+  .user__profile {
+    row-gap: 0;
+  }
+
   .user__info-wrapper {
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -266,6 +272,48 @@
   }
 }
 
-/* stats */
+/*--------------------
+	    user__stats
+---------------------*/
+.user__stats {
+  margin-top: 32px;
+}
 
-/* social */
+.background {
+  --s1: 1rem;
+
+  grid-column: 1 /3;
+
+  background-color: var(--clr-bg-tertiary);
+  border-radius: 10px;
+  padding-block: 18px;
+  padding-inline: 14px;
+}
+
+.user__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user__stat h3 {
+  color: var(--clr-text-secondary);
+  font-size: var(--step--2);
+}
+
+.user__stat p {
+  color: var(--clr-text-primary);
+  font-size: var(--step-4);
+  font-weight: var(--fw-bold);
+}
+
+@media only screen and (min-width: 62.5em) {
+  .background {
+    grid-column: 2/3;
+  }
+}
+
+/*--------------------
+	    user__social 
+---------------------*/
