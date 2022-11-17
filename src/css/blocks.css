@@ -317,3 +317,56 @@
 /*--------------------
 	    user__social 
 ---------------------*/
+.user__social {
+  margin-top: var(--space-l-xl);
+}
+
+.user__list-links {
+  grid-column: 1/3;
+
+  display: grid;
+  align-items: center;
+  row-gap: 1rem;
+
+  max-width: 429px;
+}
+
+.user__list-link {
+  color: var(--clr-text-secondary);
+  font-size: var(--step-0);
+}
+
+.user__list-link a {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  color: inherit;
+}
+
+.user__list-link a:hover span {
+  text-decoration: underline;
+}
+
+.user__list-link svg {
+  height: 1.25rem;
+  width: 0.875rem;
+
+  fill: var(--clr-text-secondary);
+}
+
+@media only screen and (min-width: 48em) {
+  .user__list-links {
+    grid-template-columns: 1fr max-content;
+  }
+
+  .user__list-links .user__list-link:nth-child(2) {
+    justify-self: end;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .user__list-links {
+    grid-column: 2/3;
+  }
+}

@@ -11,3 +11,13 @@
   width: 1px !important;
   white-space: nowrap !important;
 }
+
+/* disable link */
+.user__list-link.not-available * {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.user__list-link.not-available * {
+  text-decoration: none !important;
+}
