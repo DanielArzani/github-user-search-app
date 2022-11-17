@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: errors.js</title>
+    <title>JSDoc: Source: form.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: errors.js</h1>
+    <h1 class="page-title">Source: form.js</h1>
 
     
 
@@ -29,15 +29,17 @@
             <pre class="prettyprint source linenums"><code>//@ts-check
 
 /**
- * @class
- * @classdesc Can be used to return a custom error message, should be used with the throw keyword. Contains a default error message if one isn't passed in
- * @example throw new validationError
+ * extracts a single key from a form
+ * @param {HTMLFormElement} form - An instance of an HTMLFormElement
+ * @param {string} formKey - The key of the associated value of the formData object
+ * @returns {string | null}
  */
-export class validationError {
-  /** @param {string} message - The message to return on error */
-  constructor(message = 'ERROR ERROR') {
-    this.message = message;
-  }
+export function extractFormData(form, formKey) {
+  const formData = new FormData(form);
+  const searchInput = formData.get(formKey);
+  if (searchInput != null) {
+    return searchInput.toString();
+  } else return null;
 }
 </code></pre>
         </article>

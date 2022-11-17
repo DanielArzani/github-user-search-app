@@ -11,3 +11,19 @@
   width: 1px !important;
   white-space: nowrap !important;
 }
+
+/* custom grid 01 */
+.c-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 70px 1fr;
+  column-gap: 1.1875rem;
+  row-gap: var(--space-l);
+}
+
+@media only screen and (min-width: 48em) {
+  .c-grid {
+    grid-template-columns: 117px 1fr;
+    column-gap: 2.5625rem;
+  }
+}

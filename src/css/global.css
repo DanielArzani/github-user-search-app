@@ -55,13 +55,17 @@
   --space-2xl-3xl: clamp(3.25rem, calc(2.41rem + 3.57vw), 5.63rem);
 
   /* Custom pairs */
+
+  /* FONT WEIGHTS */
+  --fw-normal: 400;
+  --fw-bold: 700;
 }
 
 body {
   background-color: var(--clr-bg-main);
   font-family: 'Space Mono', monospace;
   font-size: var(--step-0);
-  font-weight: 400;
+  font-weight: var(--fw-normal);
 }
 
 /* light theme */

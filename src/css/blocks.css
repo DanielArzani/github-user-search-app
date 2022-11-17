@@ -11,13 +11,13 @@
 .header__title {
   color: var(--clr-text-primary);
   font-size: 1.625rem;
-  font-weight: 700;
+  font-weight: var(--fw-bold);
 }
 
 .header__toggle {
   color: var(--clr-text-toggle);
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: var(--fw-bold);
 }
 
 @media only screen and (max-width: 17.125em) {
@@ -49,6 +49,21 @@
 
 .toggle__label input {
   opacity: 0.00001;
+}
+
+/*--------------------
+	    main 
+---------------------*/
+@media only screen and (min-width: 48em) {
+  .main {
+    --measure: 35.8125rem;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .main {
+    --measure: 45.625rem;
+  }
 }
 
 /*--------------------
@@ -131,7 +146,7 @@
   color: hsl(var(--clr-white));
   cursor: pointer;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   height: 100%;
   max-width: 100%;
   min-height: 3.125rem;
@@ -164,3 +179,108 @@
     width: 100%;
   }
 }
+
+/*--------------------
+	    user card 
+---------------------*/
+.user {
+  background-color: var(--clr-bg-secondary);
+  border-radius: 15px;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  margin-inline: auto;
+  margin-top: var(--space-m);
+  padding: 2rem 1.5rem 3rem 1.5rem;
+}
+
+/* profile */
+/* .user__profile {
+} */
+
+.user__image {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+  height: 4.375rem;
+  overflow: hidden;
+}
+
+.user__image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.user__info-wrapper {
+  align-self: center;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, max-content);
+  row-gap: 3px;
+}
+
+.user__name {
+  color: var(--clr-text-primary);
+  font-size: var(--step-5);
+  font-weight: var(--fw-bold);
+}
+
+.user__link {
+  color: var(--clr-text-link);
+  font-size: var(--step-1);
+}
+
+.user__date-joined {
+  color: var(--clr-text-secondary);
+  font-size: var(--step-0);
+}
+
+.user__bio {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+
+  color: var(--clr-text-secondary);
+  font-size: var(--step-0);
+  line-height: 25px;
+  max-width: 55ch;
+}
+
+@media only screen and (min-width: 48em) {
+  .user {
+    padding: 2.5rem;
+  }
+
+  .user__image {
+    height: 7.3125rem;
+  }
+}
+
+@media only screen and (min-width: 62.5rem) {
+  .user__info-wrapper {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .user__name {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+
+  .user__link {
+    grid-column: 1/2;
+  }
+
+  .user__date-joined {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    justify-self: end;
+  }
+
+  .user__bio {
+    grid-column: 2/3;
+  }
+}
+
+/* stats */
+
+/* social */

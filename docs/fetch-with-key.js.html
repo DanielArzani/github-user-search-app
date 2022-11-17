@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: errors.js</title>
+    <title>JSDoc: Source: fetch-with-key.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: errors.js</h1>
+    <h1 class="page-title">Source: fetch-with-key.js</h1>
 
     
 
@@ -28,15 +28,25 @@
         <article>
             <pre class="prettyprint source linenums"><code>//@ts-check
 
+// @ts-ignore
+import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+
 /**
- * @class
- * @classdesc Can be used to return a custom error message, should be used with the throw keyword. Contains a default error message if one isn't passed in
- * @example throw new validationError
+ * Will make a fetch request to the github api
+ * @param {string} name - GitHub username
+ * @returns {Promise} The fulfilled promise
  */
-export class validationError {
-  /** @param {string} message - The message to return on error */
-  constructor(message = 'ERROR ERROR') {
-    this.message = message;
+export async function getUser(name) {
+  const octokit = new Octokit({
+    auth: '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',
+    baseUrl: 'https://api.github.com/users',
+  });
+
+  try {
+    const response = await octokit.request(`GET /${name}`, {});
+    return response;
+  } catch (error) {
+    console.log(error);
   }
 }
 </code></pre>

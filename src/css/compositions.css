@@ -2,7 +2,7 @@
     centering horizontally
 ----------------------------*/
 .center {
-  --measure: 45.625rem;
+  --measure: 20.4375rem;
   --gutters: 1.5rem;
 
   box-sizing: content-box;

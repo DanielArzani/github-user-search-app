@@ -66,9 +66,8 @@
       </fieldset>
     </header>
 
-    <main class="[ main ]">
-      <!-- TODO: make sure to test if aria-live works as intended -->
-      <form class="[ search-form ] [ center ]" action="/" method="get">
+    <main class="[ main ] [ center ]">
+      <form class="[ search-form ]" action="/" method="get">
         <p>Search GitHub username…</p>
         <div class="[ search-form__container ]" role="search">
           <div class="[ search-form__form-controls ]">
@@ -99,6 +98,34 @@
           <button class="[ search-form__button ]" type="submit">Search</button>
         </div>
       </form>
+
+      <div class="[ user ]">
+        <section class="[ user__profile ] [ c-grid ]">
+          <div class="[ user__image ]">
+            <img
+              src="https://avatars.githubusercontent.com/u/583231?v=4"
+              alt=""
+              width="117px"
+              height="117px"
+            />
+          </div>
+
+          <div class="[ user__info-wrapper ]">
+            <h2 class="[ user__name ]">The Octocat</h2>
+            <a href="#" class="[ user__link ]">@octocat</a>
+            <p class="[ user__date-joined ]">Joined <time>25 Jan 2011</time></p>
+          </div>
+
+          <p class="[ user__bio ]">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+            odio. Quisque volutpat mattis eros.
+          </p>
+        </section>
+
+        <section class="[ user__stats ]"></section>
+
+        <section class="[ user__social ]"></section>
+      </div>
     </main>
   </body>
 </html>
