@@ -52,21 +52,6 @@
 }
 
 /*--------------------
-	    main 
----------------------*/
-@media only screen and (min-width: 48em) {
-  .main {
-    --measure: 35.8125rem;
-  }
-}
-
-@media only screen and (min-width: 62.5em) {
-  .main {
-    --measure: 45.625rem;
-  }
-}
-
-/*--------------------
 	    search form 
 ---------------------*/
 .search-form {

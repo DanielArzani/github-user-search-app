@@ -11,3 +11,15 @@
   padding-inline-start: var(--gutters);
   padding-inline-end: var(--gutters);
 }
+
+@media only screen and (min-width: 48em) {
+  .center {
+    --measure: 35.8125rem;
+  }
+}
+
+@media only screen and (min-width: 62.5em) {
+  .center {
+    --measure: 45.625rem;
+  }
+}
