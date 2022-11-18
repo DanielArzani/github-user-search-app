@@ -2,17 +2,55 @@
 'use strict';
 
 // dependencies
-
-import { validationError } from './utils/errors.js';
 import { changeClassName, setLabel, handleClick } from './utils/dom.js';
 import { getUser } from './utils/fetch.js';
 import { extractFormData } from './utils/form.js';
+import { UI } from './utils/render.js';
 
 // global variables
 const searchForm = document.querySelector('.search-form');
 const inputs = document.querySelectorAll('.toggle__switch input');
 const labels = document.querySelectorAll('.toggle__switch label');
 const body = document.body;
+
+// elements of the user card
+const userImage = document.querySelector('.user__image img');
+const userName = document.querySelector('.user__name');
+const userLink = document.querySelector('.user__link');
+const userLinkSpan = document.querySelector('[data-user-link]');
+const dateJoined = document.querySelector('.user__date-joined');
+const userBio = document.querySelector('.user__bio');
+const userRepos = document.querySelector('[data-repos]');
+const userFollowers = document.querySelector('[data-followers]');
+const userFollowing = document.querySelector('[data-following]');
+const userLocation = document.querySelector('[data-location]');
+const userLocationLink = document.querySelector('.link--location');
+const userTwitter = document.querySelector('[data-twitter]');
+const userTwitterLink = document.querySelector('.link--twitter');
+const userWebsite = document.querySelector('[data-website]');
+const userWebsiteLink = document.querySelector('.link--website');
+const userCompany = document.querySelector('[data-company]');
+const userCompanyLink = document.querySelector('.link--company');
+
+const elementsList = {
+  userImage,
+  userName,
+  userLink,
+  userLinkSpan,
+  dateJoined,
+  userBio,
+  userRepos,
+  userFollowers,
+  userFollowing,
+  userLocation,
+  userLocationLink,
+  userTwitter,
+  userTwitterLink,
+  userWebsite,
+  userWebsiteLink,
+  userCompany,
+  userCompanyLink,
+};
 
 // SET THEME ON PAGE LOAD
 window.addEventListener('DOMContentLoaded', () => {
@@ -34,8 +72,6 @@ inputs.forEach((input) => {
 });
 
 // GET GITHUB USER INFO
-// avatar_url ,created_at, name, location, public_repos, followers, following, html_url, twitter_username, blog, bio, company
-
 searchForm?.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -44,7 +80,6 @@ searchForm?.addEventListener('submit', (e) => {
     if (userSearchParam == null) return null;
 
     getUser(userSearchParam).then((data) => {
-      console.log(data);
       const errorMsg = document.querySelector('.search-form__error');
 
       if (data != null) {
@@ -53,16 +88,11 @@ searchForm?.addEventListener('submit', (e) => {
           errorMsg.dataset.content = '';
         }
 
-        // UN-COMMENT FOR DEVELOPMENT
-        // const { data: userData } = data;
-
-        // UN-COMMENT OUT FOR PRODUCTION
-        const userData = data;
-
         // render data on screen
-      }
-
-      if (data == undefined) {
+        const userInterface = new UI(data, elementsList);
+        userInterface.render();
+      } else if (data == undefined) {
+        // show error message
         if (errorMsg instanceof HTMLSpanElement) {
           errorMsg.dataset.content = 'No Results';
         }
