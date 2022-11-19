@@ -26,12 +26,12 @@ export class UI {
       this.elementsList['userWebsiteLink'],
       this.elementsList['userCompanyLink'],
     ];
-    this.enableLinksOnNewSearch(shouldEnable);
+    this.#enableLinksOnNewSearch(shouldEnable);
 
     // update the src attribute of all images
     const imageProps = [this.data.avatar_url];
     const images = [this.elementsList['userImage']];
-    this.updateImages(images, imageProps);
+    this.#updateImages(images, imageProps);
 
     // update the text content of all elements except the one that holds the user bio
     const textProps = [
@@ -58,10 +58,10 @@ export class UI {
       this.elementsList['userTwitter'],
       this.elementsList['userCompany'],
     ];
-    this.updateTextContent(textElements, textProps);
+    this.#updateTextContent(textElements, textProps);
 
     // change the text content of the element which holds the userBio
-    this.updateUserBio(this.elementsList['userBio'], this.data.bio);
+    this.#updateUserBio(this.elementsList['userBio'], this.data.bio);
 
     // update the href attribute of all elements. Disable links that have null values and add not available as their text content
     const linkProps = [
@@ -78,7 +78,7 @@ export class UI {
       this.elementsList['userWebsiteLink'],
       this.elementsList['userCompanyLink'],
     ];
-    this.updateLinks(linkElements, linkProps);
+    this.#updateLinks(linkElements, linkProps);
   }
 
   /**
@@ -86,7 +86,7 @@ export class UI {
    * @param {Element[]} imageElements
    * @param {Array} values
    */
-  updateImages(imageElements, values) {
+  #updateImages(imageElements, values) {
     imageElements.forEach((image, index) => {
       image.setAttribute('src', values[index]);
     });
@@ -97,7 +97,7 @@ export class UI {
    * @param {Element[]} textElements
    * @param {Array} values
    */
-  updateTextContent(textElements, values) {
+  #updateTextContent(textElements, values) {
     textElements.forEach((textElement, index) => {
       textElement.textContent = values[index];
     });
@@ -108,7 +108,7 @@ export class UI {
    * @param {Element} element - The element which holds the user bio
    * @param {string | null} value - The string which will the bio should have. If null then "This profile has no bio" is used
    */
-  updateUserBio(element, value) {
+  #updateUserBio(element, value) {
     if (value == null || !value) {
       element.textContent = 'This profile has no bio';
     } else {
@@ -121,10 +121,10 @@ export class UI {
    * @param {Element[]} linkElements - An array of anchor elements
    * @param {string[]} values - An array of href values
    */
-  updateLinks(linkElements, values) {
+  #updateLinks(linkElements, values) {
     linkElements.forEach((link, index) => {
       if (values[index] == null || !values[index]) {
-        this.disableLink(linkElements[index]);
+        this.#disableLink(linkElements[index]);
       } else {
         link.setAttribute('href', values[index]);
       }
@@ -135,7 +135,7 @@ export class UI {
    * Will disable the parent element of the passed in anchor tag which should be a list item in order for all of that list items children to also be disabled
    * @param {Element} linkElement - An anchor tag
    */
-  disableLink(linkElement) {
+  #disableLink(linkElement) {
     if (linkElement.parentElement != null) {
       linkElement.parentElement.classList.add('not-available');
     }
@@ -149,7 +149,7 @@ export class UI {
    * Removes the not available class from an array of elements
    * @param {Element[]} links - An array of links who's parent elements will be targeted
    */
-  enableLinksOnNewSearch(links) {
+  #enableLinksOnNewSearch(links) {
     links.forEach((link) => {
       const listItem = link.parentElement;
       if (listItem != null) {
