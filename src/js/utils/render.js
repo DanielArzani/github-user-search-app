@@ -1,5 +1,7 @@
 //@ts-check
 
+import { convertTimeFormat } from './helpers.js';
+
 /**
  * @class For updating data and states rendered on screen
  */
@@ -99,7 +101,19 @@ export class UI {
    */
   #updateTextContent(textElements, values) {
     textElements.forEach((textElement, index) => {
-      textElement.textContent = values[index];
+      if (textElement.getAttribute('class') !== '[ user__date-joined ]') {
+        textElement.textContent = values[index];
+      }
+
+      // change time format and update datetime attr on time element
+      if (textElement.getAttribute('class') === '[ user__date-joined ]') {
+        const timeElement = textElement.querySelector('time');
+        const formattedDate = convertTimeFormat(values[index]);
+        if (timeElement != null) {
+          timeElement.textContent = formattedDate;
+          timeElement.setAttribute('datetime', values[index]);
+        }
+      }
     });
   }
 
@@ -127,6 +141,19 @@ export class UI {
         this.#disableLink(linkElements[index]);
       } else {
         link.setAttribute('href', values[index]);
+
+        // when someone clicks on the location link, it will take them to google
+        if (link.getAttribute('class') === '[ link--location ]') {
+          link.setAttribute(
+            'href',
+            `https://www.google.com/search?q=${values[index]}`
+          );
+        }
+
+        // when someone clicks on the twitter link, it will take them to their twitter profile
+        if (link.getAttribute('class') === '[ link--twitter ]') {
+          link.setAttribute('href', `https://www.twitter.com/${values[index]}`);
+        }
       }
     });
   }
