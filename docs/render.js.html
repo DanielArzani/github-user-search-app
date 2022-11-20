@@ -28,6 +28,8 @@
         <article>
             <pre class="prettyprint source linenums"><code>//@ts-check
 
+import { convertTimeFormat } from './helpers.js';
+
 /**
  * @class For updating data and states rendered on screen
  */
@@ -54,12 +56,12 @@ export class UI {
       this.elementsList['userWebsiteLink'],
       this.elementsList['userCompanyLink'],
     ];
-    this.enableLinksOnNewSearch(shouldEnable);
+    this.#enableLinksOnNewSearch(shouldEnable);
 
     // update the src attribute of all images
     const imageProps = [this.data.avatar_url];
     const images = [this.elementsList['userImage']];
-    this.updateImages(images, imageProps);
+    this.#updateImages(images, imageProps);
 
     // update the text content of all elements except the one that holds the user bio
     const textProps = [
@@ -86,10 +88,10 @@ export class UI {
       this.elementsList['userTwitter'],
       this.elementsList['userCompany'],
     ];
-    this.updateTextContent(textElements, textProps);
+    this.#updateTextContent(textElements, textProps);
 
     // change the text content of the element which holds the userBio
-    this.updateUserBio(this.elementsList['userBio'], this.data.bio);
+    this.#updateUserBio(this.elementsList['userBio'], this.data.bio);
 
     // update the href attribute of all elements. Disable links that have null values and add not available as their text content
     const linkProps = [
@@ -106,7 +108,7 @@ export class UI {
       this.elementsList['userWebsiteLink'],
       this.elementsList['userCompanyLink'],
     ];
-    this.updateLinks(linkElements, linkProps);
+    this.#updateLinks(linkElements, linkProps);
   }
 
   /**
@@ -114,7 +116,7 @@ export class UI {
    * @param {Element[]} imageElements
    * @param {Array} values
    */
-  updateImages(imageElements, values) {
+  #updateImages(imageElements, values) {
     imageElements.forEach((image, index) => {
       image.setAttribute('src', values[index]);
     });
@@ -125,9 +127,21 @@ export class UI {
    * @param {Element[]} textElements
    * @param {Array} values
    */
-  updateTextContent(textElements, values) {
+  #updateTextContent(textElements, values) {
     textElements.forEach((textElement, index) => {
-      textElement.textContent = values[index];
+      if (textElement.getAttribute('class') !== '[ user__date-joined ]') {
+        textElement.textContent = values[index];
+      }
+
+      // change time format and update datetime attr on time element
+      if (textElement.getAttribute('class') === '[ user__date-joined ]') {
+        const timeElement = textElement.querySelector('time');
+        const formattedDate = convertTimeFormat(values[index]);
+        if (timeElement != null) {
+          timeElement.textContent = formattedDate;
+          timeElement.setAttribute('datetime', values[index]);
+        }
+      }
     });
   }
 
@@ -136,7 +150,7 @@ export class UI {
    * @param {Element} element - The element which holds the user bio
    * @param {string | null} value - The string which will the bio should have. If null then "This profile has no bio" is used
    */
-  updateUserBio(element, value) {
+  #updateUserBio(element, value) {
     if (value == null || !value) {
       element.textContent = 'This profile has no bio';
     } else {
@@ -149,12 +163,25 @@ export class UI {
    * @param {Element[]} linkElements - An array of anchor elements
    * @param {string[]} values - An array of href values
    */
-  updateLinks(linkElements, values) {
+  #updateLinks(linkElements, values) {
     linkElements.forEach((link, index) => {
       if (values[index] == null || !values[index]) {
-        this.disableLink(linkElements[index]);
+        this.#disableLink(linkElements[index]);
       } else {
         link.setAttribute('href', values[index]);
+
+        // when someone clicks on the location link, it will take them to google
+        if (link.getAttribute('class') === '[ link--location ]') {
+          link.setAttribute(
+            'href',
+            `https://www.google.com/search?q=${values[index]}`
+          );
+        }
+
+        // when someone clicks on the twitter link, it will take them to their twitter profile
+        if (link.getAttribute('class') === '[ link--twitter ]') {
+          link.setAttribute('href', `https://www.twitter.com/${values[index]}`);
+        }
       }
     });
   }
@@ -163,7 +190,7 @@ export class UI {
    * Will disable the parent element of the passed in anchor tag which should be a list item in order for all of that list items children to also be disabled
    * @param {Element} linkElement - An anchor tag
    */
-  disableLink(linkElement) {
+  #disableLink(linkElement) {
     if (linkElement.parentElement != null) {
       linkElement.parentElement.classList.add('not-available');
     }
@@ -177,7 +204,7 @@ export class UI {
    * Removes the not available class from an array of elements
    * @param {Element[]} links - An array of links who's parent elements will be targeted
    */
-  enableLinksOnNewSearch(links) {
+  #enableLinksOnNewSearch(links) {
     links.forEach((link) => {
       const listItem = link.parentElement;
       if (listItem != null) {
@@ -196,13 +223,13 @@ export class UI {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="UI.html">UI</a></li><li><a href="validationError.html">validationError</a></li></ul><h3>Global</h3><ul><li><a href="global.html#changeClassName">changeClassName</a></li><li><a href="global.html#extractFormData">extractFormData</a></li><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#setLabel">setLabel</a></li><li><a href="global.html#storeTheme">storeTheme</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="UI.html">UI</a></li><li><a href="validationError.html">validationError</a></li></ul><h3>Global</h3><ul><li><a href="global.html#changeClassName">changeClassName</a></li><li><a href="global.html#convertTimeFormat">convertTimeFormat</a></li><li><a href="global.html#extractFormData">extractFormData</a></li><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#setLabel">setLabel</a></li><li><a href="global.html#storeTheme">storeTheme</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Nov 18 2022 17:42:53 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sat Nov 19 2022 23:00:08 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

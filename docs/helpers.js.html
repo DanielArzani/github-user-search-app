@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: fetch.js</title>
+    <title>JSDoc: Source: helpers.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: fetch.js</h1>
+    <h1 class="page-title">Source: helpers.js</h1>
 
     
 
@@ -28,27 +28,20 @@
         <article>
             <pre class="prettyprint source linenums"><code>//@ts-check
 
-// @ts-ignore
-
 /**
- * Will make a fetch request to the github api
- * @param {string} name - GitHub username
- * @returns {Promise} The fulfilled promise
+ * Converts ISO time format to a custom time format
+ * @example convertTimeFormat('2012-05-29T07:46:02Z') returns 29 May 2012
+ * @param {string} time - A date string that follows the ISO format
+ * @returns {string} A custom formatted string
  */
-export async function getUser(name) {
-  try {
-    const response = await fetch(`https://api.github.com/users/${name}`);
+export function convertTimeFormat(time) {
+  console.log(time);
+  const newDateFormat = new Date(time);
+  const cleanDateFormat = newDateFormat.toUTCString();
 
-    const data = await response.json();
+  const cutString = cleanDateFormat.slice(4, 16);
 
-    if (data.message === 'Not Found') {
-      return undefined;
-    }
-
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  return cutString;
 }
 </code></pre>
         </article>
