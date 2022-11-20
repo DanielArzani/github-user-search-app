@@ -1,2 +1,0 @@
-import{describe,expect,it,vi,beforeEach}from"vitest";import{getUser}from"../utils/fetch";const testFetch=vi.fn(((e,t)=>new Promise(((e,t)=>{e(new Response({ok:!0,json:()=>new Promise(((e,t)=>{e({userObject:"someValue"})}))}))}))));vi.stubGlobal("fetch",testFetch),describe("getUser()",(()=>{it("should be defined",(()=>{expect(getUser).toBeDefined()})),it("should return testProp",(async()=>{expect(getUser("daniel")).resolves}))}));
-//# sourceMappingURL=fetch.test.js.map

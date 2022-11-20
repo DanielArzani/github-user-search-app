@@ -12,6 +12,7 @@ style-guide.md
 /coverage
 /src/js/utils/fetch-with-key.js
 /src/js/utils/fetch-with-no-key.js
+/dist/
 
 # Local Netlify folder
 .netlify

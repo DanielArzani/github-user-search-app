@@ -1,1 +1,0 @@
-{"version":3,"file":"utils/helpers.js","names":["convertTimeFormat","time","console","log","Date","toUTCString","slice"],"sources":["utils/helpers.js"],"mappings":"OAQO,SAASA,kBAAkBC,GAChCC,QAAQC,IAAIF,GAMZ,OALsB,IAAIG,KAAKH,GACOI,cAEJC,MAAM,EAAG,GAG7C"}

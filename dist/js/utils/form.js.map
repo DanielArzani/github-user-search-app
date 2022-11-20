@@ -1,1 +1,0 @@
-{"version":3,"file":"utils/form.js","names":["extractFormData","form","formKey","searchInput","FormData","get","toString"],"sources":["utils/form.js"],"mappings":"OAQO,SAASA,gBAAgBC,EAAMC,GACpC,MACMC,EADW,IAAIC,SAASH,GACDI,IAAIH,GACjC,OAAmB,MAAfC,EACKA,EAAYG,WACP,IAChB"}
