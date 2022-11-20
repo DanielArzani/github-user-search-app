@@ -62,10 +62,10 @@
 }
 
 body {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100vh; */
 
   background-color: var(--clr-bg-main);
   font-family: 'Space Mono', monospace;
