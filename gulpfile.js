@@ -1,7 +1,9 @@
-const { src, dest, watch, series } = require('gulp');
+const { src, dest, watch, series, gulp } = require('gulp');
 const terser = require('gulp-terser');
-// const browsersync = require('browser-sync').create();
+const browsersync = require('browser-sync').create();
 const concat = require('gulp-concat');
+const exec = require('child_process').exec; // run command-line programs from gulp
+const execSync = require('child_process').execSync; // command-line reports
 
 // css task
 function cssTask() {
@@ -56,6 +58,28 @@ function watchTask() {
   );
 }
 
+// Watch for netlify deployment
+function netlify(done) {
+  return new Promise(function (resolve, reject) {
+    console.log(execSync('netlify watch').toString());
+    resolve();
+  });
+}
+
+// Preview Deployment
+function netlifyOpen(done) {
+  return exec('netlify open:site');
+  done();
+}
+
+// Deploy command
+exports.deploy = series(netlify, netlifyOpen);
+
 // default gulp task
-exports.default = series(assetsTask, cssTask, jsTask, browsersyncServe);
-// watchTask // un-comment for development
+exports.default = series(
+  assetsTask,
+  cssTask,
+  jsTask,
+  browsersyncServe,
+  watchTask
+);
