@@ -61,6 +61,6 @@ exports.default = series(
   assetsTask,
   cssTask,
   jsTask,
-  browsersyncServe,
-  watchTask
+  browsersyncServe
+  // watchTask // un-comment for development
 );
