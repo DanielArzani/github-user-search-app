@@ -1,13 +1,13 @@
 //@ts-check
 'use strict';
 
-// dependencies
+// DEPENDENCIES
 import { changeClassName, setLabel, handleClick } from './utils/dom.js';
 import { getUser } from './utils/fetch.js';
 import { extractFormData } from './utils/form.js';
 import { UI } from './utils/render.js';
 
-// global variables
+// GLOBAL VARIABLES
 const searchForm = document.querySelector('.search-form');
 const inputs = document.querySelectorAll('.toggle__switch input');
 const labels = document.querySelectorAll('.toggle__switch label');
