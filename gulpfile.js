@@ -1,6 +1,6 @@
 const { src, dest, watch, series } = require('gulp');
 const terser = require('gulp-terser');
-const browsersync = require('browser-sync').create();
+// const browsersync = require('browser-sync').create();
 const concat = require('gulp-concat');
 
 // css task
@@ -57,10 +57,5 @@ function watchTask() {
 }
 
 // default gulp task
-exports.default = series(
-  assetsTask,
-  cssTask,
-  jsTask,
-  browsersyncServe
-  // watchTask // un-comment for development
-);
+exports.default = series(assetsTask, cssTask, jsTask, browsersyncServe);
+// watchTask // un-comment for development
