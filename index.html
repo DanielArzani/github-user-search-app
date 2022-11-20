@@ -28,174 +28,178 @@
     <script src="./src/js/script.js" type="module"></script>
   </head>
   <body>
-    <header class="[ header ] [ center ]">
-      <h1 class="[ header__title ]">devfinder</h1>
+    <div id="root">
+      <header class="[ header ] [ center ]">
+        <h1 class="[ header__title ]">devfinder</h1>
 
-      <fieldset class="[ header__toggle toggle ]">
-        <legend class="[ toggle__legend ] [ sr-only ]">
-          Toggle Color Theme
-        </legend>
+        <fieldset class="[ header__toggle toggle ]">
+          <legend class="[ toggle__legend ] [ sr-only ]">
+            Toggle Color Theme
+          </legend>
 
-        <div class="[ toggle__switch ]">
-          <label for="dark" class="[ toggle__label ]" data-hidden="false">
-            <input type="radio" name="toggle" id="dark" value="dark" />
-            Dark
-            <img
-              src="./src/assets/images/icon-moon.svg"
-              aria-hidden="true"
-              alt=""
-            />
-          </label>
-
-          <label for="light" class="[ toggle__label ]" data-hidden="true">
-            <input
-              type="radio"
-              name="toggle"
-              id="light"
-              value="light"
-              checked
-            />
-            Light
-            <img
-              src="./src/assets/images/icon-sun.svg"
-              aria-hidden="true"
-              alt=""
-            />
-          </label>
-        </div>
-      </fieldset>
-    </header>
-
-    <main class="[ main ] [ center ]">
-      <form class="[ search-form ]" action="/" method="get">
-        <p>Search GitHub username…</p>
-        <div class="[ search-form__container ]" role="search">
-          <div class="[ search-form__form-controls ]">
-            <label class="[ search-form__label ]" for="search">
+          <div class="[ toggle__switch ]">
+            <label for="dark" class="[ toggle__label ]" data-hidden="false">
+              <input type="radio" name="toggle" id="dark" value="dark" />
+              Dark
               <img
-                src="./src/assets/images/icon-search.svg"
-                alt="Search for github user by username"
+                src="./src/assets/images/icon-moon.svg"
+                aria-hidden="true"
+                alt=""
               />
             </label>
-            <input
-              class="[ search-form__input ]"
-              type="search"
-              id="search"
-              name="search"
-              maxlength="39"
-              pattern="[a-zA-Z0-9]{0,38}"
-              required
-            />
 
-            <span
-              aria-describedby="search"
-              class="[ search-form__error ]"
-              aria-live="polite"
-              data-content=""
-            ></span>
+            <label for="light" class="[ toggle__label ]" data-hidden="true">
+              <input
+                type="radio"
+                name="toggle"
+                id="light"
+                value="light"
+                checked
+              />
+              Light
+              <img
+                src="./src/assets/images/icon-sun.svg"
+                aria-hidden="true"
+                alt=""
+              />
+            </label>
           </div>
+        </fieldset>
+      </header>
 
-          <button class="[ search-form__button ]" type="submit">Search</button>
-        </div>
-      </form>
+      <main class="[ main ] [ center centered ]">
+        <form class="[ search-form ]" action="/" method="get">
+          <p>Search GitHub username…</p>
+          <div class="[ search-form__container ]" role="search">
+            <div class="[ search-form__form-controls ]">
+              <label class="[ search-form__label ]" for="search">
+                <img
+                  src="./src/assets/images/icon-search.svg"
+                  alt="Search for github user by username"
+                />
+              </label>
+              <input
+                class="[ search-form__input ]"
+                type="search"
+                id="search"
+                name="search"
+                maxlength="39"
+                pattern="[a-zA-Z0-9]{0,38}"
+                required
+              />
 
-      <div class="[ user ]">
-        <section class="[ user__profile ] [ c-grid ]">
-          <div class="[ user__image ]">
-            <img
-              src="https://avatars.githubusercontent.com/u/583231?v=4"
-              alt=""
-              width="117"
-              height="117"
-            />
-          </div>
-
-          <div class="[ user__info-wrapper ]">
-            <h2 class="[ user__name ]">The Octocat</h2>
-            <a href="#" target="_blank" class="[ user__link ]"
-              >@<span data-user-link>octocat</span></a
-            >
-            <p class="[ user__date-joined ]">
-              Joined <time datetime="2021-09-10T00:57:28Z">25 Jan 2011</time>
-            </p>
-          </div>
-
-          <p class="[ user__bio ]">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-            odio. Quisque volutpat mattis eros.
-          </p>
-        </section>
-
-        <section class="[ user__stats ] [ c-grid ]">
-          <div class="[ background ] [ switcher ]">
-            <div class="[ user__stat ]">
-              <h3>Repos</h3>
-              <p data-repos>8</p>
+              <span
+                aria-describedby="search"
+                class="[ search-form__error ]"
+                aria-live="polite"
+                data-content=""
+              ></span>
             </div>
 
-            <div class="[ user__stat ]">
-              <h3>Followers</h3>
-              <p data-followers>3938</p>
-            </div>
-
-            <div class="[ user__stat ]">
-              <h3>Following</h3>
-              <p data-following>9</p>
-            </div>
+            <button class="[ search-form__button ]" type="submit">
+              Search
+            </button>
           </div>
-        </section>
+        </form>
 
-        <section class="[ user__social ] [ c-grid ]">
-          <h4 class="[ sr-only ]">User Links</h4>
-          <ul class="[ user__list-links ]">
-            <li class="[ user__list-link ]">
-              <a
-                href="#"
-                target="_blank"
-                class="[ link--location ]"
-                data-location-link
+        <div class="[ user ]">
+          <section class="[ user__profile ] [ c-grid ]">
+            <div class="[ user__image ]">
+              <img
+                src="https://avatars.githubusercontent.com/u/583231?v=4"
+                alt=""
+                width="117"
+                height="117"
+              />
+            </div>
+
+            <div class="[ user__info-wrapper ]">
+              <h2 class="[ user__name ]">The Octocat</h2>
+              <a href="#" target="_blank" class="[ user__link ]"
+                >@<span data-user-link>octocat</span></a
               >
-                <svg>
-                  <use
-                    xlink:href="./src/assets/images/sprite.svg#location"
-                  ></use>
-                </svg>
-                <span data-location>San Francisco</span>
-              </a>
-            </li>
-            <li class="[ user__list-link ] [ not-available ]">
-              <a href="#" target="_blank" class="[ link--twitter ]">
-                <svg>
-                  <use
-                    xlink:href="./src/assets/images/sprite.svg#twitter"
-                  ></use>
-                </svg>
-                <span data-twitter>Not Available</span>
-              </a>
-            </li>
-            <li class="[ user__list-link ]">
-              <a href="#" target="_blank" class="[ link--website ]">
-                <svg>
-                  <use
-                    xlink:href="./src/assets/images/sprite.svg#website"
-                  ></use>
-                </svg>
-                <span data-website>https://github.blog</span>
-              </a>
-            </li>
-            <li class="[ user__list-link ]">
-              <a href="#" target="_blank" class="[ link--company ]">
-                <svg>
-                  <use
-                    xlink:href="./src/assets/images/sprite.svg#company"
-                  ></use>
-                </svg>
-                <span data-company>@github</span>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </div>
-    </main>
+              <p class="[ user__date-joined ]">
+                Joined <time datetime="2021-09-10T00:57:28Z">25 Jan 2011</time>
+              </p>
+            </div>
+
+            <p class="[ user__bio ]">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+              odio. Quisque volutpat mattis eros.
+            </p>
+          </section>
+
+          <section class="[ user__stats ] [ c-grid ]">
+            <div class="[ background ] [ switcher ]">
+              <div class="[ user__stat ]">
+                <h3>Repos</h3>
+                <p data-repos>8</p>
+              </div>
+
+              <div class="[ user__stat ]">
+                <h3>Followers</h3>
+                <p data-followers>3938</p>
+              </div>
+
+              <div class="[ user__stat ]">
+                <h3>Following</h3>
+                <p data-following>9</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="[ user__social ] [ c-grid ]">
+            <h4 class="[ sr-only ]">User Links</h4>
+            <ul class="[ user__list-links ]">
+              <li class="[ user__list-link ]">
+                <a
+                  href="#"
+                  target="_blank"
+                  class="[ link--location ]"
+                  data-location-link
+                >
+                  <svg>
+                    <use
+                      xlink:href="./src/assets/images/sprite.svg#location"
+                    ></use>
+                  </svg>
+                  <span data-location>San Francisco</span>
+                </a>
+              </li>
+              <li class="[ user__list-link ] [ not-available ]">
+                <a href="#" target="_blank" class="[ link--twitter ]">
+                  <svg>
+                    <use
+                      xlink:href="./src/assets/images/sprite.svg#twitter"
+                    ></use>
+                  </svg>
+                  <span data-twitter>Not Available</span>
+                </a>
+              </li>
+              <li class="[ user__list-link ]">
+                <a href="#" target="_blank" class="[ link--website ]">
+                  <svg>
+                    <use
+                      xlink:href="./src/assets/images/sprite.svg#website"
+                    ></use>
+                  </svg>
+                  <span data-website>https://github.blog</span>
+                </a>
+              </li>
+              <li class="[ user__list-link ]">
+                <a href="#" target="_blank" class="[ link--company ]">
+                  <svg>
+                    <use
+                      xlink:href="./src/assets/images/sprite.svg#company"
+                    ></use>
+                  </svg>
+                  <span data-company>@github</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
