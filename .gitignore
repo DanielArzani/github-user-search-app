@@ -3,6 +3,7 @@
 *.sketch
 .prettierignore
 .DS_Store
+/dist/
 notes.md
 /node_modules
 README-template.md
