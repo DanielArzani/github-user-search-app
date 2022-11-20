@@ -1,0 +1,2 @@
+export async function getUser(t){try{const e=await fetch(`https://api.github.com/users/${t}`),o=await e.json();if("Not Found"===o.message)return;return o}catch(t){console.log(t)}}
+//# sourceMappingURL=fetch.js.map

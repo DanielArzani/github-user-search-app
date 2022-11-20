@@ -1,0 +1,1 @@
+{"version":3,"file":"utils/fetch.js","names":["async","getUser","name","response","fetch","data","json","message","error","console","log"],"sources":["utils/fetch.js"],"mappings":"OASOA,eAAeC,QAAQC,GAC5B,IACE,MAAMC,QAAiBC,MAAM,gCAAgCF,KAEvDG,QAAaF,EAASG,OAE5B,GAAqB,cAAjBD,EAAKE,QACP,OAGF,OAAOF,CAGT,CAFE,MAAOG,GACPC,QAAQC,IAAIF,EACd,CACF"}

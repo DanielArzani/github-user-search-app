@@ -1,0 +1,2 @@
+import{Octokit}from"https://cdn.skypack.dev/@octokit/core";export async function getUser(t){const o=new Octokit({auth:"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",baseUrl:"https://api.github.com/users"});try{return await o.request(`GET /${t}`,{})}catch(t){console.log(t)}}
+//# sourceMappingURL=fetch-with-key.js.map

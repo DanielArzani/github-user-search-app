@@ -3,13 +3,11 @@
 *.sketch
 .prettierignore
 .DS_Store
-/dist/
 notes.md
 /node_modules
 README-template.md
 style-guide.md
 /design
-/dist
 .markdownlint.json
 /coverage
 /src/js/utils/fetch-with-key.js
