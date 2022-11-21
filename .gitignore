@@ -13,6 +13,8 @@ style-guide.md
 /src/js/utils/fetch-with-key.js
 /src/js/utils/fetch-with-no-key.js
 /dist/
+src/**/output
+/.vscode
 
 # Local Netlify folder
 .netlify

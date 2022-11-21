@@ -146,7 +146,7 @@ export class UI {
         if (link.getAttribute('class') === '[ link--location ]') {
           link.setAttribute(
             'href',
-            `https://www.google.com/search?q=${values[index]}`
+            `https://www.google.com/maps?q=${values[index]}`
           );
         }
 
