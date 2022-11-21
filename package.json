@@ -8,7 +8,6 @@
     "test": "vitest --run --reporter verbose",
     "test-coverage": "vitest --coverage",
     "test-dom": "vitest --run --environment happy-dom",
-    "concat-css": "cat src/css/reset.css src/css/global.css src/css/compositions.css src/css/utilities.css src/css/blocks.css src/css/exceptions.css >> src/css/all-styles.css",
     "build": "gulp prod"
   },
   "repository": {
