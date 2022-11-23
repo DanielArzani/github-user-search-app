@@ -62,15 +62,18 @@
 }
 
 body {
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; */
-
   background-color: var(--clr-bg-main);
   font-family: 'Space Mono', monospace;
   font-size: var(--step-0);
   font-weight: var(--fw-normal);
+}
+
+.header {
+  margin-inline: auto;
+}
+
+.main {
+  margin-inline: auto;
 }
 
 ul {

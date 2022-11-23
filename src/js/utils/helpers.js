@@ -7,7 +7,6 @@
  * @returns {string} A custom formatted string
  */
 export function convertTimeFormat(time) {
-  console.log(time);
   const newDateFormat = new Date(time);
   const cleanDateFormat = newDateFormat.toUTCString();
 
