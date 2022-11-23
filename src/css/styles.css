@@ -144,6 +144,7 @@ body {
   font-family: 'Space Mono', monospace;
   font-size: var(--step-0);
   font-weight: var(--fw-normal);
+  min-height: 100vh;
 }
 
 ul {
@@ -228,27 +229,6 @@ a {
 .switcher > :nth-last-child(n + 4),
 .switcher > :nth-last-child(n + 4) ~ * {
   flex-basis: 100%;
-}
-
-/*---------------------------
-    for creating a full bleed
-    fixed width layout
-----------------------------*/
-/* center was originally used but making upon applying flex or grid to the body in order to vertically center the content, the card would get squished horizontally depending on what the api returned. This solution was used to fix that */
-.wrapper {
-  display: grid;
-  grid-template-columns:
-    1fr
-    min(45.625rem, 100%)
-    1fr;
-}
-.wrapper > * {
-  grid-column: 2;
-}
-
-.full-bleed {
-  width: 100%;
-  grid-column: 1 / 4;
 }
 
 .sr-only {
