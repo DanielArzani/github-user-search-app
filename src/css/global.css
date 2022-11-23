@@ -68,14 +68,6 @@ body {
   font-weight: var(--fw-normal);
 }
 
-.header {
-  margin-inline: auto;
-}
-
-.main {
-  margin-inline: auto;
-}
-
 ul {
   list-style: none;
 }
